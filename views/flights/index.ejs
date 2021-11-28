@@ -1,0 +1,37 @@
+<%- include('../partials/head.ejs') %>
+
+    <br>
+    <h1>All Flights</h1>
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Airline</th>
+                    <th scope="col">Airport</th>
+                    <th scope="col">Flight No</th>
+                    <th scope="col">Departs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Write the line of EJS to iterate over movies using forEach -->
+                <% flights.forEach(function(flight) { %>
+                    <tr>
+                        <td class="bg-success">
+                            <%= flight.airline %>
+                        </td>
+                        <td class="table-info">
+                            <%= flight.airport %>
+                        </td>
+                        <td class="bg-primary">
+                            <%= flight.flightNo %>
+                        </td>
+                        <td class="bg-warning">
+                            <%= flight.departs %>
+                        </td>
+                    </tr>
+                    <!-- Close the forEach using EJS here -->
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('../partials/footer.ejs') %>

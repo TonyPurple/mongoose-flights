@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('./partials/head.ejs') %>
+
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <p class="mb-0">Welcome to Mongoose Flights. To see a list of all flights or to create your own flight time, click the above link.</p>
+            <br>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
