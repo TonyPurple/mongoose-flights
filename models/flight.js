@@ -2,9 +2,18 @@ const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
+function setDefaultDepartureDate() {
+    const today = new Date()
+    const defaultDate = today.getFullYear() + 1
+    today.setFullYear(defaultDate)
+    return today
+}
+setDefaultDepartureDate()
+
 const flightSchema = new Schema({
     airline: {
         type: String,
+        required: true,
         enum: ['American', 'Southwest', 'United']
     },
     airport: {
@@ -19,9 +28,7 @@ const flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        default: function() {
-            return new Date().getFullYear();
-        }
+        default: setDefaultDepartureDate()
     }
 }, {
     timestamps: true
