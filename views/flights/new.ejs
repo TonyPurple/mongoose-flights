@@ -2,15 +2,17 @@
 
     <br>
     <h2>Enter a New Flight</h2>
+    <br>
     <form action="/flights" method="POST">
-        <label>Airline:
-            <select name="airline">
+        <fieldset>
+            <label for="airlineField">Airline:
+            <select id="airlineField">
                 <option value="American">American</option>
                 <option value="Southwest">Southwest</option>
                 <option value="United">United</option>
               </select>
   </label><br>
-        <label>Airport:
+            <label for="airportField">Airport:
             <select name="airport">
                 <option value="AUS">AUS</option>
                 <option value="DFW">DFW</option>
@@ -19,12 +21,15 @@
                 <option value="SAN">SAN</option>
               </select>
   </label><br>
-        <label>Flight No:
+            <label>Flight No:
             <input type="number" name="flightNo">
   </label><br>
-        <label>Departs:
+            <label>Departs:
     <input type="datetime-local" name="departs">
   </label><br>
-        <input type="submit" value="Add Flight">
+            <div class="float-right">
+                <input class="button" type="submit" value="Add Flight">
+            </div>
+        </fieldset>
     </form>
     <%- include('../partials/footer.ejs') %>
