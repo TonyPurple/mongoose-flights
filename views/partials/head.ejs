@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mongoose Flights</title>
+    <title>
+        <%= title %>
+    </title>
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <!-- CSS Reset -->
@@ -22,6 +24,11 @@
             <a class="button button-clear" href="/">
         Mongoose Flights
     </a>
-            <a class="button button-outline" href="/flights/">All Flights</a>
-            <a class="button button-outline" href="/flights/new">Add Flight</a>
+            <a class="button button-outline" href="/flights/" <%- title==='All Flights' ? 'class="active"' : '' %>>ALL Flights</a>
+            <a class="button button-outline" href="/flights/new" <%- title==='Add Flight' ? 'class="active"' : '' %>>ADD Flight</a>
         </nav>
+        <br>
+        <main>
+            <h1>
+                <%= title %>
+            </h1>

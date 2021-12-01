@@ -1,7 +1,5 @@
 <%- include('../partials/head.ejs') %>
 
-    <br>
-    <h1>All Flights</h1>
     <table>
         <thead>
             <tr>
@@ -27,6 +25,7 @@
                     <td>
                         <%= flight.departs %>
                     </td>
+                    <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
                 </tr>
                 <!-- Close the forEach using EJS here -->
                 <% }); %>
