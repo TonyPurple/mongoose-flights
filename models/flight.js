@@ -16,6 +16,7 @@ const destinationSchema = new Schema({
     timestamps: true
 });
 
+let curDate = new Date()
 const flightSchema = new Schema({
     airline: {
         type: String,
@@ -37,11 +38,9 @@ const flightSchema = new Schema({
     departs: {
         type: Date,
         // required: true,
-        default: function() {
-            return new Date().setFullYear(new Date().getFullYear() + 1)
-        }
+        default: curDate.setFullYear(curDate.getFullYear() + 1),
     },
-    destinations: [destinationSchema]
+    destinations: [destinationSchema],
 }, {
     timestamps: true
 });

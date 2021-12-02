@@ -1,10 +1,12 @@
 body {
     padding: 50px;
-    font-family: 'Roboto Slab', serif;
 }
 
 a {
-    color: #00B7FF;
     margin: 3px;
     padding: 3px;
+}
+
+span {
+    color: red;
 }
