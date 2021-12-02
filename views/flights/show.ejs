@@ -41,29 +41,30 @@
     </fieldset>
     <br>
     <h2>Destinations</h2>
-    <% if (flight.destinations.length) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Arrival Date/Time</th>
-                    <th>Airport</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% flight.destinations.forEach(function(flight) { %>
+    <% flight.destinations.sort((x, y) => x.arrival - y.arrival) %>
+        <% if (flight.destinations.length) { %>
+            <table>
+                <thead>
                     <tr>
-                        <td>
-                            <%= flight.arrival %>
-                        </td>
-                        <td>
-                            <%= flight.airport %>
-                        </td>
+                        <th>Arrival Date/Time</th>
+                        <th>Airport</th>
                     </tr>
-                    <% }); %>
-            </tbody>
-        </table>
-        <% } else { %>
-            <h5>No Destinations</h5>
-            <% } %>
+                </thead>
+                <tbody>
+                    <% flight.destinations.forEach(function(flight) { %>
+                        <tr>
+                            <td>
+                                <%= flight.arrival %>
+                            </td>
+                            <td>
+                                <%= flight.airport %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <h5>No Destinations</h5>
+                <% } %>
 
-                <%- include('../partials/footer') %>
+                    <%- include('../partials/footer') %>

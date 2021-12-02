@@ -8,6 +8,7 @@
                 <th>Flight No</th>
                 <th>Departure Date & Time</th>
                 <th>Flight Details</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,12 @@
                                     <% } %>
                     </td>
                     <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
+                    <td>
+                        <br>
+                        <form action="/flights/<%= flight.id %>?_method=DELETE" method="POST" class="delete">
+                            <input class="button" type="submit" value="X">
+                        </form>
+                    </td>
                 </tr>
                 <!-- Close the forEach using EJS here -->
                 <% }); %>
