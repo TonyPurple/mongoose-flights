@@ -19,6 +19,27 @@
         </div>
     </section>
     <br><br>
+    <h3>Add a Destination</h3>
+    <fieldset>
+        <form action="/flights/<%= flight._id %>" method="POST">
+            <label>Arrival:
+            <input type="datetime-local" name="arrival">
+          </label><br>
+            <label for="airportField">Airport:
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+              </select>
+  </label><br>
+            <div class="float-right">
+                <input class="button" type="submit" value="Add Destination">
+            </div>
+        </form>
+    </fieldset>
+    <br>
     <h2>Destinations</h2>
     <% if (flight.destinations.length) { %>
         <table>
@@ -29,13 +50,13 @@
                 </tr>
             </thead>
             <tbody>
-                <% flight.destinations.forEach(function(destination) { %>
+                <% flight.destinations.forEach(function(flight) { %>
                     <tr>
                         <td>
-                            <%= destination.arrival %>
+                            <%= flight.arrival %>
                         </td>
                         <td>
-                            <%= destination.airport %>
+                            <%= flight.airport %>
                         </td>
                     </tr>
                     <% }); %>
@@ -44,24 +65,5 @@
         <% } else { %>
             <h5>No Destinations</h5>
             <% } %>
-                <fieldset>
-                    <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
-                        <label>Arrival:
-                        <input type="datetime-local" name="arrival">
-                      </label><br>
-                        <label for="airportField">Airport:
-                        <select name="airport">
-                            <option value="AUS">AUS</option>
-                            <option value="DFW">DFW</option>
-                            <option value="DEN">DEN</option>
-                            <option value="LAX">LAX</option>
-                            <option value="SAN">SAN</option>
-                          </select>
-              </label><br>
-                        <div class="float-right">
-                            <input class="button" type="submit" value="Add Destination">
-                        </div>
-                    </form>
-                </fieldset>
 
                 <%- include('../partials/footer') %>
