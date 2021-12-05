@@ -1,0 +1,12 @@
+<%- include('../partials/head.ejs') %>
+    <br>
+    <form action="/tickets/<%= ticketId %>/" method="POST">
+        <label>Seat Selection:
+          <input type="text" name="seat" required pattern="[A-F][1-9]\d?" placeholder="A1 - F99">
+        </label><br>
+        <label>Price Range:
+          <input type="text" name="price" placeholder="$">
+        </label><br>
+        <input type="submit" value="Add Ticket">
+    </form>
+    <%- include('../partials/footer.ejs') %>

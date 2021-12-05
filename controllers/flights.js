@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
 module.exports = {
     index,
@@ -16,8 +17,11 @@ function index(req, res) {
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        res.render('flights/show', { title: 'Flight Details', flight });
-    })
+        console.log(flight)
+        Ticket.find({ flight: flight._id }, function(err, tickets) {
+            res.render('flights/show', { title: 'Flight Details', flight, tickets });
+        });
+    });
 }
 
 function newFlight(req, res) {
@@ -33,9 +37,9 @@ function create(req, res) {
     flight.save(function(err) {
         // one way to handle errors
         console.log(err);
-        if (err) return res.render('flights/new');
+        if (err) return res.redirect('flights/new');
         console.log(flight);
-        res.redirect('/flights/');
+        res.redirect('/flights');
     });
 }
 

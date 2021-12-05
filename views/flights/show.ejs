@@ -66,5 +66,44 @@
             <% } else { %>
                 <h5>No Destinations</h5>
                 <% } %>
+                    <br>
+                    <h3>Current Ticketing</h3>
+                    <section id="current-tickets">
+                        <% if (tickets.length) { %>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Seat Reserved</th>
+                                        <th>Price Paid</th>
+                                        <!-- <th>Delete Ticket</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% tickets.forEach(function(ticket) { %>
+                                        <tr>
+                                            <td>
+                                                <%= ticket.seat %>
+                                            </td>
+                                            <td>
+                                                $
+                                                <%= ticket.price %>
+                                            </td>
+                                            <!-- <td>
+                                                <form class="del" method="POST" action="/tickets/deleteTicket/<%=ticket.id%>">
+                                                    &nbsp;<button type="submit" id="ticket-del">x</button>
+                                                </form>
+                                            </td> -->
+                                        </tr>
+                                        <%}); %>
+                                </tbody>
+                            </table>
+                            <% } else { %>
+                                <h4>No Ticketing Information Yet</h4>
+                                <% } %>
+                    </section>
+                    <div class="float-right">
+                        <a class="button button-outline" href="/flights/<%= flight._id %>/tickets/new">Add New Ticket</a>
+                    </div>
+                    <br>
 
                     <%- include('../partials/footer') %>
