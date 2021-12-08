@@ -11,7 +11,7 @@
             <dd>
                 <%= flight.flightNo %>
             </dd>
-            <dt>Airport: </dt>
+            <dt>Origin Airport: </dt>
             <dd>
                 <%= flight.airport %>
             </dd>
@@ -24,10 +24,10 @@
     <h3>Add a Destination</h3>
     <fieldset>
         <form action="/flights/<%= flight._id %>" method="POST">
-            <label>Arrival:
+            <label>Arrival Date/Time:
             <input type="datetime-local" name="arrival">
           </label><br>
-            <label for="airportField">Airport:
+            <label for="airportField">Destination Airport:
             <select name="airport">
                 <option value="AUS">AUS</option>
                 <option value="DFW">DFW</option>
@@ -49,8 +49,7 @@
                 <thead>
                     <tr>
                         <th>Arrival Date/Time</th>
-                        <th>Airport</th>
-                        <th>Delete Destination</th>
+                        <th>Destination Airport</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,11 +60,6 @@
                             </td>
                             <td>
                                 <%= flight.airport %>
-                            </td>
-                            <td>
-                                <form action="/flights/<%= flight.id %>/<%= destinations %>?_method=DELETE" method="POST" class="delete">
-                                    <button type="submit">X</button>
-                                </form>
                             </td>
                         </tr>
                         <% }); %>
@@ -82,7 +76,6 @@
                                 <tr>
                                     <th>Seat Reserved</th>
                                     <th>Price Paid</th>
-                                    <!-- <th>Delete Ticket</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,11 +88,6 @@
                                             $
                                             <%= ticket.price %>
                                         </td>
-                                        <!-- <td>
-                                                <form class="del" method="POST" action="/tickets/deleteTicket/<%#=ticket.id%>">
-                                                    &nbsp;<button type="submit" id="ticket-del">x</button>
-                                                </form>
-                                            </td> -->
                                     </tr>
                                     <%}); %>
                             </tbody>

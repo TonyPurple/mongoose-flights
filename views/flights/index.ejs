@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th>Airline</th>
-                <th>Airport</th>
+                <th>Origin Airport</th>
                 <th>Flight No</th>
                 <th>Departure Date & Time</th>
                 <th>Flight Details</th>
@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <!-- Write the line of EJS to iterate over flights using forEach -->
-            <% flights.forEach(function(flight, idx) { %>
+            <% flights.forEach(function(flight) { %>
                 <tr>
                     <td>
                         <%= flight.airline %>

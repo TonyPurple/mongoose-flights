@@ -16,10 +16,10 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Flight.findById(req.params.id, function(err, flight, destinations) {
+    Flight.findById(req.params.id, function(err, flight) {
         console.log(flight)
         Ticket.find({ flight: flight._id }, function(err, tickets) {
-            res.render('flights/show', { title: 'Flight Details', flight, tickets, destinations });
+            res.render('flights/show', { title: 'Flight Details', flight, tickets });
         });
     });
 }
@@ -42,6 +42,7 @@ function create(req, res) {
         res.redirect('/flights');
     });
 }
+
 
 function deleteFlight(req, res) {
     Flight.findByIdAndDelete(req.params.id, function(err, flight) {
